@@ -2,14 +2,25 @@ import React from "react";
 
 class MyComponent extends React.Component {
   state = {
-    name: "Doan Trung Hieu",
-    old: "26 years old",
+    name: "DOAN TRUNG HIEU",
   };
+
+  handleOnChangeInput = (event) => {
+    this.setState({
+      name: event.target.value,
+    });
+  };
+
   render() {
     return (
-      <h1>
-        My Name is {this.state.name}, I {this.state.old}
-      </h1>
+      <React.Fragment>
+        <input
+          type="text"
+          value={this.state.name}
+          onChange={(event) => this.handleOnChangeInput(event)}
+        />
+        <h1>My Name is {this.state.name}</h1>
+      </React.Fragment>
     );
   }
 }
