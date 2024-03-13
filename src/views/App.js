@@ -1,7 +1,7 @@
 import logo from "./logo.svg";
 import "./App.scss";
 
-import Ex1 from "./Examples/Ex1";
+import MyComponent from "./Examples/MyComponent";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         >
           Learn React
         </a>
-        <Ex1/>
+        <MyComponent/>
       </header>
     </div>
   );
