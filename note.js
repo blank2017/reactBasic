@@ -27,7 +27,6 @@ PROPS can only be transmitted from outside (FATHER) to inside (CHILD). CANNOT BE
  * Keys help identify which items have changed, are added, or remove
  */
 
-
 /**
  * #5
  * Stateless/StateFull Components
@@ -35,10 +34,15 @@ PROPS can only be transmitted from outside (FATHER) to inside (CHILD). CANNOT BE
  * If you use HOOK, you should use Function Component
  */
 
-
 /**
  * #6
  * Conditional Output
  * When use Function Component (Arrow Function) we don't need use keyword "this"
  * If you use HOOK, you should use Function Component
+ */
+
+/**
+ * #7
+ * Split Components
+ * The main purpose is to be able to REUSE that COMPONENT
  */
