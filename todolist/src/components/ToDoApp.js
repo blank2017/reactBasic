@@ -1,14 +1,32 @@
 import React from "react";
 import "../assets/scss/ToDoList.scss";
+import RenderList from "./RenderList";
+import AddToDo from "./AddToDo";
 
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 class ToDoApp extends React.Component {
   state = {
-    listToDos: [],
+    listToDos: [
+      {
+        id: "todo1",
+        toDo: "Learn ReactJS",
+      },
+      {
+        id: "todo2",
+        toDo: "Learn NodeJS",
+      },
+      {
+        id: "todo3",
+        toDo: "Learn NextJS",
+      },
+    ],
   };
 
-  handleSubmitButton = (e) => {
-    e.preventDefault();
-    console.log(">>> Check Submit");
+  addNewToDo = (toDo) => {
+    this.setState({
+      listToDos: [...this.state.listToDos, toDo],
+    });
   };
 
   render() {
@@ -20,13 +38,13 @@ class ToDoApp extends React.Component {
         <div className="toDoList">
           <h1 className="title">TODO</h1>
           <div className="toDoList__wrapper">
-            <div className="toDoList__wrapper--add">
-              <button onClick={(e) => this.handleSubmitButton(e)} />
-              <input type="text" id="toDoInput" />
-            </div>
-            <div className="toDoList__wrapper--list"></div>
+            <AddToDo addNewToDo={this.addNewToDo} />
+
+            <RenderList listToDos={this.state.listToDos} />
           </div>
         </div>
+
+        <ToastContainer />
       </div>
     );
   }
