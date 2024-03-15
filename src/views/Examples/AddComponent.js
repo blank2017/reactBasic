@@ -2,12 +2,12 @@ import React from "react";
 
 class AddComponent extends React.Component {
   state = {
-    titleJob: "",
+    Job: "",
     salary: "",
   };
-  handleChangeTitleJob = (e) => {
+  handleChangeJob = (e) => {
     this.setState({
-      titleJob: e.target.value,
+      Job: e.target.value,
     });
   };
   handleChangeSalary = (e) => {
@@ -19,18 +19,31 @@ class AddComponent extends React.Component {
   handleSubmit = (e) => {
     e.preventDefault();
     console.log(">>> Check Data After Submit: ", this.state);
+    if (!this.state.Job || !this.state.salary) {
+      alert("Please fill all fields");
+      return;
+    }
+    this.props.addNewJob({
+      id: Math.floor(Math.random * 100),
+      Job: this.state.Job,
+      salary: this.state.salary,
+    });
+    this.setState({
+      Job: "",
+      salary: "",
+    });
   };
   render() {
     console.log(">>> Check Data Input: ", this.state);
     return (
       <React.Fragment>
         <form action="">
-          <label htmlFor="titleJob">Job's Title:</label>
+          <label htmlFor="Job">Job's Title:</label>
           <br />
           <input
             type="text"
-            value={this.state.titleJob}
-            onChange={(e) => this.handleChangeTitleJob(e)}
+            value={this.state.Job}
+            onChange={(e) => this.handleChangeJob(e)}
           />
           <br />
           <label htmlFor="salary">Salary:</label>

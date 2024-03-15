@@ -46,3 +46,9 @@ PROPS can only be transmitted from outside (FATHER) to inside (CHILD). CANNOT BE
  * Split Components
  * The main purpose is to be able to REUSE that COMPONENT
  */
+
+/**
+ * #8
+ * Function as props
+ *
+ */

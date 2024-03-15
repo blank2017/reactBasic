@@ -23,6 +23,13 @@ class MyComponent extends React.Component {
     ],
   };
 
+  addNewJob = (job) => {
+    console.log(">>> check job information: ", job);
+    this.setState({
+      arrInformation: [...this.state.arrInformation, job],
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     alert("click me");
@@ -31,7 +38,7 @@ class MyComponent extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <AddComponent />
+        <AddComponent addNewJob={this.addNewJob} />
         <ChildComponent arrInformation={this.state.arrInformation} />
       </React.Fragment>
     );
