@@ -26,3 +26,10 @@ PROPS can only be transmitted from outside (FATHER) to inside (CHILD). CANNOT BE
  * Outputting Lists (Array/Object) - Render Multiple Data with Props (Use Map Function to renders)
  * Keys help identify which items have changed, are added, or remove
  */
+
+/**
+ * #5
+ * Stateless/StateFull Components
+ * When use Function Component (Arrow Function) we don't need use keyword "this"
+ * If you use HOOK, you should use Function Component
+ */
