@@ -24,7 +24,7 @@ class AddComponent extends React.Component {
       return;
     }
     this.props.addNewJob({
-      id: Math.floor(Math.random * 100),
+      id: Math.floor(Math.random() * 100),
       Job: this.state.Job,
       salary: this.state.salary,
     });
@@ -34,7 +34,6 @@ class AddComponent extends React.Component {
     });
   };
   render() {
-    console.log(">>> Check Data Input: ", this.state);
     return (
       <React.Fragment>
         <form action="">

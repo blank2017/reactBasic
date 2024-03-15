@@ -30,6 +30,14 @@ class MyComponent extends React.Component {
     });
   };
 
+  deleteAJob = (job) => {
+    // console.log(job.id);
+    let newArr = this.state.arrInformation.filter((item) => item.id !== job.id);
+    this.setState({
+      arrInformation: newArr,
+    });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     alert("click me");
@@ -39,7 +47,10 @@ class MyComponent extends React.Component {
     return (
       <React.Fragment>
         <AddComponent addNewJob={this.addNewJob} />
-        <ChildComponent arrInformation={this.state.arrInformation} />
+        <ChildComponent
+          arrInformation={this.state.arrInformation}
+          deleteAJob={this.deleteAJob}
+        />
       </React.Fragment>
     );
   }

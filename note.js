@@ -51,4 +51,9 @@ PROPS can only be transmitted from outside (FATHER) to inside (CHILD). CANNOT BE
  * #8
  * Function as props
  *
+ * #9
+ * Deleting Data
+ * 
+ * #10
+ * Add Scss to React
  */

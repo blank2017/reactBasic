@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Demo.scss";
 class ChildComponent extends React.Component {
   state = {
     showJob: false,
@@ -11,6 +11,10 @@ class ChildComponent extends React.Component {
     });
   };
 
+  handleDeleteJob = (job) => {
+    console.log(">>> handleDeleteJob: ", job);
+    this.props.deleteAJob(job);
+  };
   render() {
     let { arrInformation } = this.props;
     let { showJob } = this.state;
@@ -27,12 +31,15 @@ class ChildComponent extends React.Component {
               {arrInformation.map((item, index) => {
                 if (+item.salary >= 500) {
                   return (
-                    <div key={item.id}>
-                      <h3>
+                    <div key={item.id} className="listJob__item">
+                      <h3 style={{ textAlign: "center" }}>
                         {item.Job}
                         <span> - </span>
                         {item.salary}
                       </h3>
+                      <button onClick={() => this.handleDeleteJob(item)}>
+                        Delete Job
+                      </button>
                     </div>
                   );
                 }
