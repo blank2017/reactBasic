@@ -1,19 +1,19 @@
 import React from "react";
-
+import ChildComponent from "./ChildComponent";
 class MyComponent extends React.Component {
   state = {
-    firstName: "",
-    lastName: "",
+    fullName: "",
+    age: "",
   };
 
-  handleChangeFirstName = (e) => {
+  handleChangeFullName = (e) => {
     this.setState({
-      firstName: e.target.value,
+      fullName: e.target.value,
     });
   };
-  handleChangeLastName = (e) => {
+  handleChangeAge = (e) => {
     this.setState({
-      lastName: e.target.value,
+      age: e.target.value,
     });
   };
   handleSubmit = (e) => {
@@ -22,26 +22,27 @@ class MyComponent extends React.Component {
   };
 
   render() {
-    console.log(">>> Call Render: ", this.state);
     return (
-      <React.Fragment>
+      <>
         <form action="">
-          <label htmlFor="fname">First Name:</label>
+          <label htmlFor="fullName">Full Name:</label>
           <br />
           <input
             type="text"
-            value={this.state.firstName}
-            onChange={(e) => this.handleChangeFirstName(e)}
+            value={this.state.fullName}
+            onChange={(e) => this.handleChangeFullName(e)}
           />
           <br />
-          <label htmlFor="lname">Last Name:</label>
+          <label htmlFor="age">Age:</label>
           <br />
-          <input type="text" onChange={(e) => this.handleChangeLastName(e)} />
+          <input type="text" onChange={(e) => this.handleChangeAge(e)} />
           <br />
           <button onClick={(e) => this.handleSubmit(e)}>Submit</button>
         </form>
+
+        <ChildComponent name={this.state.fullName} age={this.state.age} />
         <h1>Hello World</h1>
-      </React.Fragment>
+      </>
     );
   }
 }
