@@ -15,6 +15,11 @@ class MyComponent extends React.Component {
         Job:"Tester",
         salary: "400",
       },
+      {
+        id: "abc2",
+        Job:"Dev OPS",
+        salary: "800",
+      },
     ],
   };
 
