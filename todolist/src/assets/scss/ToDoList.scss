@@ -130,6 +130,9 @@
                         background-color:transparent;
                         border: none;
                         text-transform: capitalize;
+                        &:focus{
+                            outline:none;
+                        }
                     }
                     button{
                         cursor:pointer;
@@ -153,6 +156,10 @@
                         button{
                             opacity:1;
                         }
+                    }
+
+                    &:last-child{
+                        border-radius: 0 0 0.5rem 0.5rem ;
                     }
                 }
             }

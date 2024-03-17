@@ -3,21 +3,18 @@ import { toast } from "react-toastify";
 
 class AddToDo extends React.Component {
     state = {
-        toDo: "",
+        newToDo: "",
     };
 
-    handleOnChangeInputToDo = (e) => {
-        this.setState({ toDo: e.target.value });
-    };
-
-    handleSubmitButton = (e) => {
+    handleSubmit = (e) => {
         e.preventDefault();
-        if (!this.state.toDo) {
-            toast.error(" Missing Field!", {
+
+        if (!this.state.newToDo) {
+            toast.error('🦄 Wow so easy!', {
                 position: "top-right",
                 autoClose: 3000,
                 hideProgressBar: false,
-                closeOnClick: false,
+                closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
@@ -25,37 +22,31 @@ class AddToDo extends React.Component {
             });
             return;
         }
-        let toDo = {
-            id: Math.floor(Math.random() * 100),
-            toDo: this.state.toDo,
-        };
-        this.props.addNewToDo(toDo);
+        this.props.handleAddToDo({
+            _id: Math.floor(Math.random() * 100),
+            task: this.state.newToDo,
+        });
         this.setState({
-            toDo: "",
-        });
-
-        toast.success('To Do Add Success', {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: false,
-            progress: undefined,
-            theme: "light",
-        });
+            newToDo: ""
+        })
     };
 
+    handleOnChange = (e) => {
+        this.setState({
+            newToDo: e.target.value,
+        });
+    };
     render() {
-        let { toDo } = this.state;
+        console.log(">>> value: ", this.state.newToDo);
+
         return (
             <form className="toDoList__wrapper--add">
-                <button onClick={(e) => this.handleSubmitButton(e)} />
+                <button onClick={(e) => this.handleSubmit(e)} />
                 <input
                     type="text"
                     id="toDoInput"
-                    value={toDo}
-                    onChange={(e) => this.handleOnChangeInputToDo(e)}
+                    value={this.state.newToDo}
+                    onChange={(e) => this.handleOnChange(e)}
                 />
             </form>
         );
