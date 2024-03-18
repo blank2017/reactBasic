@@ -34,6 +34,16 @@ class ToDoApp extends React.Component {
   };
   handleCancel = () => {
     this.setState({ isEditing: false });
+    toast.warning("Cancel Edit Task", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   };
 
   handleSave = (id, updatedTask) => {
@@ -60,7 +70,6 @@ class ToDoApp extends React.Component {
   onTaskChange = (id, updatedTask) => {
     const updatedListToDos = this.state.listToDos.map((todo) => {
       if (todo._id === id) {
-
         return { ...todo, task: updatedTask };
       }
       return todo;
@@ -68,10 +77,22 @@ class ToDoApp extends React.Component {
     this.setState({ listToDos: updatedListToDos });
   };
 
-  deleteTodo = (toDo) => {
-    let newArr = this.state.listToDos.filter((item) => item.id !== toDo.id);
+  deleteTodo = (id) => {
+    const updatedListToDos = this.state.listToDos.filter(
+      (toDo) => toDo._id !== id
+    );
+    toast.success("Delete Success!", {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
     this.setState({
-      listToDos: newArr,
+      listToDos: updatedListToDos,
     });
   };
 

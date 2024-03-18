@@ -21,7 +21,8 @@ class RenderList extends React.Component {
         ) : (
           <React.Fragment>
             <button onClick={handleEdit}>Edit</button>
-            <button onClick={() =>  deleteTodo(toDo)}>Delete</button>
+            
+            <button onClick={() =>  deleteTodo(toDo._id)}>Delete</button>
           </React.Fragment>
         )}
       </div>
