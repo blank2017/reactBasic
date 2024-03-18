@@ -12,6 +12,7 @@ class ToDoApp extends React.Component {
     isEditing: false,
   };
 
+  /** Handle Add Button */
   handleAddToDo = (toDo) => {
     toast.success("Add Success!", {
       position: "top-right",
@@ -29,9 +30,24 @@ class ToDoApp extends React.Component {
     });
   };
 
+  /** Handle Edit Button */
   handleEdit = () => {
     this.setState({ isEditing: true });
   };
+
+  /** Handle OnChange Input */
+  onTaskChange = (id, updatedTask) => {
+    const updatedListToDos = this.state.listToDos.map((todo) => {
+      if (todo._id === id) {
+        return { ...todo, task: updatedTask };
+      }
+      return todo;
+    });
+    this.setState({ listToDos: updatedListToDos });
+  };
+
+
+  /** Handle Cancel Button */
   handleCancel = () => {
     this.setState({ isEditing: false });
     toast.warning("Cancel Edit Task", {
@@ -46,6 +62,7 @@ class ToDoApp extends React.Component {
     });
   };
 
+  /** Handle Save Button */
   handleSave = (id, updatedTask) => {
     const { listToDos } = this.state;
     const updatedToDos = listToDos.map((todo) => {
@@ -67,16 +84,9 @@ class ToDoApp extends React.Component {
     this.setState({ listToDos: updatedToDos, isEditing: false });
   };
 
-  onTaskChange = (id, updatedTask) => {
-    const updatedListToDos = this.state.listToDos.map((todo) => {
-      if (todo._id === id) {
-        return { ...todo, task: updatedTask };
-      }
-      return todo;
-    });
-    this.setState({ listToDos: updatedListToDos });
-  };
 
+  
+  /** Handle Delete Button */
   deleteTodo = (id) => {
     const updatedListToDos = this.state.listToDos.filter(
       (toDo) => toDo._id !== id
