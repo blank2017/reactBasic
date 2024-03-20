@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Outlet, Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Root() {
   return (
@@ -22,23 +22,25 @@ export default function Root() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <Link to="/" className="nav-link active" aria-current="page">
+              <NavLink
+                to="/"
+                className="nav-link"
+                activeClassName="active"
+                aria-current="page"
+                extract={true}
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <Link
+              <NavLink
                 to="/My-component"
-                className="nav-link active"
+                className="nav-link"
+                activeClassName="active"
                 aria-current="page"
               >
                 Features
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="#">
-                Pricing
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
