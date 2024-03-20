@@ -1,0 +1,8 @@
+.users{
+    height:50rem;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    gap: 2.5rem;
+
+}
