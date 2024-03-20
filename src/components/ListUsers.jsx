@@ -6,10 +6,12 @@ class ListUsers extends React.Component {
   state = {
     listUsers: [],
   };
+  
+
   componentDidMount() {
     axios.get("https://reqres.in/api/users?page=2").then((res) => {
       this.setState({
-        listUsers: res && res.data && res.data.data ? res.data.data : [],
+        listUsers: res.data.data || [],
       });
     });
   }
@@ -28,11 +30,10 @@ class ListUsers extends React.Component {
 
     return (
       <div className="users">
-          
-          {listUsers.map((item, index) => {
-            return <User key={item.id} user={item} />;
-          })}
-
+        {listUsers && listUsers.length >0 &&
+          listUsers.map((item, index) => {
+          return <User key={item.id} user={item} />
+        })}
       </div>
     );
   }

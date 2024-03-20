@@ -5,6 +5,8 @@ import MyComponent from "./Examples/MyComponent";
 import Home from "./Examples/Home";
 import Root from "../routes/root";
 import ListUsers from "../components/ListUsers";
+import DetailUser from "../components/DetailUser";
+
 function App() {
   return (
     <Router>
@@ -14,7 +16,8 @@ function App() {
           <Routes>
             <Route extract path="/" element={<Home />} />
             <Route path="/My-component" element={<MyComponent />} />
-            <Route path="/users" element={<ListUsers />} />
+            <Route path="/users" element={<ListUsers />} extract />
+            <Route path="/users/:id" element={<DetailUser />} />
           </Routes>
         </header>
       </div>
