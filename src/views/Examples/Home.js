@@ -1,19 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import { deleteUser, createUser } from "../../redux/action/crud.action";
+
 class Home extends React.Component {
-  handleDeleteUser = (user) => {
-    console.log(">>>Check ing user to delete", user);
-    this.props.deleteDataInStore(user);
-  };
-  handleAddNewUser = () => {
-    this.props.addNewUserToStore();
-  };
   render() {
     const users = this.props.dataRedux;
     return (
       <React.Fragment>
         <h1>Home Page</h1>
-        <button onClick={() => this.handleAddNewUser()}>ADD NEW USER</button>
+        <button onClick={() => this.props.createUser()}>ADD NEW USER</button>
         {users.map((user, index) => {
           return (
             <div
@@ -25,7 +20,7 @@ class Home extends React.Component {
                 {user.name} - {user.email}
               </span>
 
-              <button onClick={() => this.handleDeleteUser(user)}>
+              <button onClick={() => this.props.deleteUser(user)}>
                 Delete
               </button>
             </div>
@@ -38,14 +33,14 @@ class Home extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    dataRedux: state.users, //Data in Redux store
+    dataRedux: state.crud.users, //Data in Redux store
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteDataInStore: (userDelete) =>dispatch({ type: "DELETE_USER", payload: userDelete }),
-    addNewUserToStore: () => dispatch({ type: "CREATE_USER" }),
+    deleteUser: (userDelete) => dispatch(deleteUser(userDelete)),
+    createUser: () => dispatch(createUser()),
   };
 };
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

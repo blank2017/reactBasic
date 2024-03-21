@@ -1,3 +1,5 @@
+import { combineReducers } from 'redux';
+
 
 const initState = {
   users: [
@@ -7,7 +9,7 @@ const initState = {
   post: [],
 };
 
-const rootReducer = (state = initState, action) => {
+const crudReducer = (state = initState, action) => {
   switch (action.type) {
     case "DELETE_USER":
       console.log(">>> Run Into Init User: ", action.payload);
@@ -37,6 +39,9 @@ const rootReducer = (state = initState, action) => {
       return state;
   }
 };
-
-
+// Combine Reducers
+const rootReducer = combineReducers({
+  crud: crudReducer,
+  // Add other reducers here if you have more
+});
 export default rootReducer;
