@@ -44,8 +44,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteDataInStore: (userDelete) =>
-      dispatch({ type: "DELETE_USER", payload: userDelete }),
+    deleteDataInStore: (userDelete) =>dispatch({ type: "DELETE_USER", payload: userDelete }),
     addNewUserToStore: () => dispatch({ type: "CREATE_USER" }),
   };
 };

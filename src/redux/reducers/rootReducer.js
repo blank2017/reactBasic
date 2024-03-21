@@ -1,3 +1,4 @@
+
 const initState = {
   users: [
     { id: 1, name: "John Doe", email: "john@doe.com" },
@@ -5,6 +6,7 @@ const initState = {
   ],
   post: [],
 };
+
 const rootReducer = (state = initState, action) => {
   switch (action.type) {
     case "DELETE_USER":
@@ -35,5 +37,6 @@ const rootReducer = (state = initState, action) => {
       return state;
   }
 };
+
 
 export default rootReducer;
