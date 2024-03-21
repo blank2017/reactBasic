@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 class User extends React.Component {
   render() {
@@ -11,9 +12,11 @@ class User extends React.Component {
             <img src={user.avatar} alt="" />
           </div>
           <div className="user-info">
-            <h3>
-              {user.first_name} {user.last_name}
-            </h3>
+            <NavLink to={`/users/${user.id}`}>
+              <h3>
+                {user.first_name} {user.last_name}
+              </h3>
+            </NavLink>
             <p>{user.email}</p>
           </div>
         </div>

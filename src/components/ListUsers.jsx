@@ -15,15 +15,6 @@ class ListUsers extends React.Component {
       });
     });
   }
-  // async componentDidMount() {
-  //   try {
-  //     const response = await axios.get("https://reqres.in/api/users?page=2");
-  //     // console.log(response);
-  //     this.setState({ listUsers: response.data.data })
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // }
 
   render() {
     const { listUsers } = this.state;
